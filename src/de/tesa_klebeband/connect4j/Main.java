@@ -1,4 +1,4 @@
-
+package de.tesa_klebeband.connect4j;
 
 public class Main {
     public static void main(String[] args) {

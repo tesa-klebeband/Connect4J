@@ -1,3 +1,5 @@
+package de.tesa_klebeband.connect4j;
+
 public class Connect4 {
     private int columns = 7;
     private int height = 6;

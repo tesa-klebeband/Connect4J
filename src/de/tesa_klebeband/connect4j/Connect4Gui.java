@@ -1,7 +1,7 @@
+package de.tesa_klebeband.connect4j;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.plaf.BorderUIResource;
-import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -15,7 +15,6 @@ public class Connect4Gui {
     private JFrame gameFrame;
     private JFrame settingsFrame;
     private Connect4 game;
-    private KeyListener keyListener;
     private int key = 0;
     private int currentPlayer = 1;
     private int column = 1;
@@ -28,7 +27,7 @@ public class Connect4Gui {
         gameFrame = new JFrame("Connect4J");
         JPanel gamePanel = new GPanel();
         game = new Connect4();
-        keyListener = new KeyListener() {
+        KeyListener keyListener = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent keyEvent) {
 
@@ -93,6 +92,7 @@ public class Connect4Gui {
         playerColorPanels[1].setLayout(new GridLayout(3, 3));
 
         // Set background colors and borders
+        //Set default background using UIManager
         settingsPanel.setBackground(Color.DARK_GRAY);
         gameSizePanel.setBackground(Color.DARK_GRAY);
         colorPanelContainer.setBackground(Color.DARK_GRAY);
@@ -123,7 +123,6 @@ public class Connect4Gui {
         columnField.setBorder(null);
         applySizeButton.setBorder(null);
         resetButton.setBorder(null);
-
 
         // Top settings panel - game size
         columnField.setText(game.getWidth() + "");
@@ -245,7 +244,7 @@ public class Connect4Gui {
 
                 default:
                     try {
-                        Thread.sleep(10);
+                        Thread.sleep(1);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
